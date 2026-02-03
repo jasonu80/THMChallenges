@@ -17,7 +17,7 @@ For the date, it is mentioned on the statistics panel that the first captured pa
 
 Navigate to `Statistics > Capture File Properties` for the Date. 
 
-![Date](Assets/StatisticDate.png)
+![Date](Carnage/StatisticDate.png)
 
 For the time, it is filtered using the filter bar on the Wireshark GUI. 
 
@@ -27,7 +27,7 @@ OR
 
 Calculate the seconds after the first packet is recorded, which will be given in the image below:
 
-![Time](Assets/HttpFilter.png)
+![Time](Carnage/HttpFilter.png)
 
 Answer on Time: The first packet recorded + Seconds displayed on the image above.
 
@@ -41,13 +41,13 @@ The previous image shows that the name of the zip file that was downloaded named
 
 The domain is located on the packet details of the previous question, where it shows the full request URI. 
 
-![Domain](Assets/SiteDownloaded.png)
+![Domain](Carnage/SiteDownloaded.png)
 
 ### Without downloading the file, what is the name of the file in the zip file?
 
 Looking at the packet bytes of the previous question, there is an excel file inside the zip file. 
 
-![ZipFileInside](Assets/File.png)
+![ZipFileInside](Carnage/File.png)
 
 ### What is the name of the webserver of the malicious IP from which the zip file was downloaded?
 
@@ -63,7 +63,7 @@ Different from the previous question where it asks the name of the webserver use
 
 The answer can be found on the image below:
 
-![WebServerInfo](Assets/WebServerInfo.png)
+![WebServerInfo](Carnage/WebServerInfo.png)
 
 <!-- This also has the answer of the previous question! -->
 
@@ -75,19 +75,19 @@ So, the question asks if there are malicious files that were downloaded in multi
 
 If we filter `dns` in the Wireshark filter bar and scroll down a little bit, we found the answer of this question. 
 
-![DNS](Assets/DomainName.png)
+![DNS](Carnage/DomainName.png)
 
 The answer of the image because of the threat actor that gathered multiple sites to the target so that it has the ability to deface the target computer.
 
 Here is the source of the attack:
 
-![Chronology](Assets/Chronology.png)
+![Chronology](Carnage/Chronology.png)
 
 ### Which certificate authority issued the SSL certificate to the first domain from the previous question?
 
 It is located on the encryption process, where the Transport Layer Security (TLS) takes place in the first domain.
 
-![Certificate](Assets/SSLProvider.png)
+![Certificate](Carnage/SSLProvider.png)
 
 ### What are the two IP addresses of the Cobalt Strike servers? Use VirusTotal (the Community tab) to confirm if IPs are identified as Cobalt Strike C2 servers. (answer format: enter the IP addresses in sequential order)
 
@@ -97,19 +97,19 @@ I felt the struggle when I did not understand the word Cobalt Strike servers. He
 
 Here, the hint suggests that I need to look in the conversation menu, so I look there and filter based on the packets descending, which is shown in the image given:
 
-![C2](Assets/C2Conversations.png)
+![C2](Carnage/C2Conversations.png)
 
 Based on the format of the answer, there are 2 top IP addresses that are match. We can verify by looking at the results in VirusTotal and check the comments on the image given below:
 
-![Comment1](Assets/VTComment1.png)
+![Comment1](Carnage/VTComment1.png)
 
-![Comment2](Assets/VTComment2.png)
+![Comment2](Carnage/VTComment2.png)
 
 ### What is the Host header for the first Cobalt Strike IP address from the previous question?
 
 If we filter using the first IP address of the previous answer, then the results are shown below:
 
-![Results](Assets/HTTPHeaderC2.png)
+![Results](Carnage/HTTPHeaderC2.png)
 
 The host header is written on the packet details.
 
@@ -137,13 +137,13 @@ Therefore, we need to filter the wireshark packets by using the filter bar: `htt
 
 Here are the results and the answer is located on the packet bytes:
 
-![POST](Assets/HTTPPOST.png)
+![POST](Carnage/HTTPPOST.png)
 
 ### What are the first eleven characters that the victim host sends out to the malicious domain involved in the post-infection traffic?
 
 The filter that needs to be applied for this question: http.host == `"maldivehost.net"`. Here is the result in the image format:
 
-![First11Char](Assets/First11Char.png)
+![First11Char](Carnage/First11Char.png)
 
 ### What was the length for the first packet sent out to the C2 server?
 
@@ -153,7 +153,7 @@ The answer will be on the same packet that is in the previous 2 questions where 
 
 It provides one of the packet details results as well with the answer, with the filter on the previous 2 questions:
 
-![Serverheader](Assets/ServerHeader.png)
+![Serverheader](Carnage/ServerHeader.png)
 
 ### The malware used an API to check for the IP address of the victim’s machine. What was the date and time when the DNS query for the IP check domain occurred? (answer format: yyyy-mm-dd hh:mm:ss UTC)
 
@@ -161,13 +161,13 @@ We need to know the domain name of the API first. Head to the next question to f
 
 So, if we apply the DNS filter in the filter bar: `dns.qry.name == "api.ipify.org"`, then we yield this resources:
 
-![API](Assets/FirstAPI.png)
+![API](Carnage/FirstAPI.png)
 
 ### What was the domain in the DNS query from the previous question?
 
 So, the DNS query of the previous question is located after the HTTP traffic. The frame number needs to be filtered to produce the results in the image below:
 
-![DNSAPI](Assets/ApiDNS.png)
+![DNSAPI](Carnage/ApiDNS.png)
 
 ### Looks like there was some malicious spam (malspam) activity going on. What was the first MAIL FROM address observed in the traffic?
 
@@ -175,7 +175,7 @@ It seems that the question is talking about mail traffic, so it is verified that
 
 Therefore, here is the result of the filter:
 
-![SMTP](Assets/MailFROM.png)
+![SMTP](Carnage/MailFROM.png)
 
 ### How many packets were observed for the SMTP traffic? 
 
